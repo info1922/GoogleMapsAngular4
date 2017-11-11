@@ -2,16 +2,32 @@
 </app-navbar>
 
 <div class="main-container">
+
     <div class="container">
-        <div class="doc-section">
-            <h5>Ubicación <strong>lat:</strong> {{lat}} <strong>long:</strong> {{lng}}</h5>
 
-            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+        <div class="row">
+            <div class="four columns">
+                <h5>Marcador</h5>
+            </div>
+            <div class="eight columns">
+                <h5>Ubicación </h5> <strong>lat:</strong> {{lat}} <strong> long:</strong> {{lng}}
 
-                <!-- <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker> -->
+                <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
 
-            </agm-map>
+                    <agm-marker [latitude]="lat" [longitude]="lng">
+
+                        <agm-info-window>
+                            <strong>Titulo</strong>
+                            <p>Mi casa</p>
+                        </agm-info-window>
+
+                    </agm-marker>
+
+                </agm-map>
+
+            </div>
 
         </div>
+
     </div>
 </div>
