@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+
+.main-container {
+    margin-top: 10px;
+}
+
+agm-map {
+    height: 600px;
+}
+
+.gtd {
+    font-family: Permanent Marker, sans-serif;
+}
+
+.gtd-r1 {
+    font-size: 22px;
+}
+
+.gtd-r2 {
+    font-size: 6em;
+    line-height: 1.1em;
+}
+
+.gtd-r3 {
+    font-size: 21em;
+    line-height: 0.72em;
+}
