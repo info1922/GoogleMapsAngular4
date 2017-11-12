@@ -22,6 +22,27 @@ export class MapasService {
 
   insertarMarcador ( marcador: Marcador) {
     this.marcadores.push(marcador);
+    this.guardarMarcadores();
+    console.log(this.marcadores.length);
+  }
+
+  guardarMarcadores () {
+
+    // Guarda los marcadores en el local storage
+    // el local storage solo maneja string (strigify)
+    localStorage.setItem('marcadores', JSON.stringify( this.marcadores ));
+  }
+
+  cargarMarcadores () {
+
+    // Carga los marcadores previamente guardados en el local Storage
+    if (localStorage.getItem('marcadores')) {
+      // Reconverti con JSON.parse
+      this.marcadores = JSON.parse(localStorage.getItem('marcadores')) ;
+    } else {
+      this.marcadores = [];
+    }
+
   }
 
 }
