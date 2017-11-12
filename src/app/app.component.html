@@ -12,13 +12,13 @@
             <div class="eight columns">
                 <h5>Ubicación </h5> <strong>lat:</strong> {{lat}} <strong> long:</strong> {{lng}}
 
-                <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+                <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" (mapClick)="mapClicked($event)">
 
-                    <agm-marker [latitude]="lat" [longitude]="lng">
+                    <agm-marker *ngFor="let marcador of  _ms.marcadores" [latitude]="marcador.lat" [longitude]="marcador.lng" [title]="marcador.titulo" [markerDraggable]="marcador.draggable">
 
                         <agm-info-window>
-                            <strong>Titulo</strong>
-                            <p>Mi casa</p>
+                            <strong>{{ marcador.titulo }}</strong>
+                            <p *ngIf="marcador.desc">{{ marcador.desc}}</p>
                         </agm-info-window>
 
                     </agm-marker>
