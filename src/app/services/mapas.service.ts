@@ -26,6 +26,12 @@ export class MapasService {
     console.log(this.marcadores.length);
   }
 
+  borrarMarcador(idx: number) {
+    // Solo borramos un elemento en la posición idx
+    this.marcadores.splice(idx, 1);
+    this.guardarMarcadores();
+  }
+
   guardarMarcadores () {
 
     // Guarda los marcadores en el local storage

@@ -7,8 +7,37 @@
 
         <div class="row">
             <div class="four columns">
-                <h5>Marcador</h5>
+
+                <!-- Titulo y descripción del marcador -->
+                <div *ngIf="marcadorSel">
+
+                    <h5>Marcador</h5>
+                    <hr>
+
+                    <div class="row">
+
+                        <label for="">Titulo</label>
+                        <input [(ngModel)]="marcadorSel.titulo" type="text" name="titulo" class="u-full-width">
+                        <br><br>
+
+                        <label for="">Descripción</label>
+                        <textarea [(ngModel)]="marcadorSel.desc" type="text" rows="5" name="desc" class="u-full-width"></textarea>
+
+                        <label for="">Draggable?</label>
+                        <select [(ngModel)]="draggable" (change)="cambiarDraggable()" name="draggable" class="u-full-width" id="">
+                            <option value="1">Si</option>
+                            <option value="0">No</option>
+                        </select>
+                        <br><br>
+                        <input (click)="_ms.guardarMarcadores()" class="button-primary u-full-width" type="button" value="Guardar cambios">
+
+                    </div>
+
+                </div>
+
             </div>
+
+            <!-- Localización del marcador -->
             <div class="eight columns">
                 <h5>Ubicación </h5> <strong>lat:</strong> {{lat}} <strong> long:</strong> {{lng}}
 
@@ -19,6 +48,11 @@
                         <agm-info-window>
                             <strong>{{ marcador.titulo }}</strong>
                             <p *ngIf="marcador.desc">{{ marcador.desc}}</p>
+
+                            <p>
+                                <a (click)="_ms.borrarMarcador(i)">Borrar marcador</a>
+                            </p>
+
                         </agm-info-window>
 
                     </agm-marker>
@@ -30,4 +64,5 @@
         </div>
 
     </div>
+
 </div>
