@@ -7,7 +7,9 @@
 
         <div class="row">
             <div class="four columns">
-
+                <div *ngIf="!marcadorSel" style="background-color:lightcoral">
+                    <p class="primary"><strong>Click en el mapa</strong> para crear un nuevo marcador o seleccione uno.</p>
+                </div>
                 <!-- Titulo y descripción del marcador -->
                 <div *ngIf="marcadorSel">
 
@@ -50,7 +52,7 @@
                             <p *ngIf="marcador.desc">{{ marcador.desc}}</p>
 
                             <p>
-                                <a (click)="_ms.borrarMarcador(i)">Borrar marcador</a>
+                                <a (click)="_ms.borrarMarcador(i); marcadorSel=null;">Borrar marcador</a>
                             </p>
 
                         </agm-info-window>
